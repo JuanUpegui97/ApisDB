@@ -25,6 +25,9 @@ namespace ApisDB.Controllers
                                       .ToListAsync();
             return Ok(datos);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b3600821eece5eadadb88f7a3b03b5ea4ddad402
     }
 }

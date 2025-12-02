@@ -21,6 +21,7 @@ namespace ApisDB.Services
                                  .Take(10)
                                  .ToListAsync();
         }
+<<<<<<< HEAD
         public async Task<List<VistaPrueba>> GetViewTestClass(string clas)
         {
             return await _context.VistaPruebas
@@ -29,6 +30,8 @@ namespace ApisDB.Services
                                  .ToListAsync();
         }
 
+=======
+>>>>>>> b3600821eece5eadadb88f7a3b03b5ea4ddad402
 
     }
 }

@@ -17,7 +17,11 @@ namespace ApisDB.Controllers
         {
             _service = service;
         }
+<<<<<<< HEAD
         [HttpGet("mv_tipo/{id}")]
+=======
+        [HttpGet("ventas/{id}")]
+>>>>>>> b3600821eece5eadadb88f7a3b03b5ea4ddad402
         public async Task<ActionResult> GetViewTest(string id)
         {
             var result = await _service.GetViewTest(id);
@@ -25,6 +29,7 @@ namespace ApisDB.Controllers
             return Ok(result);
         }
 
+<<<<<<< HEAD
         [HttpGet("ta_clase/{clas}")]
         public async Task<ActionResult> GetViewTestClass(string clas)
         {
@@ -33,5 +38,7 @@ namespace ApisDB.Controllers
             return Ok(result);
         }
 
+=======
+>>>>>>> b3600821eece5eadadb88f7a3b03b5ea4ddad402
     }
 }
