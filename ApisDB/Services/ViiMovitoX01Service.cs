@@ -1,7 +1,7 @@
 ﻿using ApisDB.Data;
 using ApisDB.Models;
 using Microsoft.EntityFrameworkCore;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 
 namespace ApisDB.Services
@@ -48,24 +48,29 @@ namespace ApisDB.Services
                                  .Where(v => v.Bodega1 == bod)
                                  .ToListAsync();
         }
-
+        public async Task<List<ViiMovitoX01>> GetMovitoByClas(string clas)
+        {
+            return await _context.ViiMovitoX01s
+                                 .Where(v => v.ClaseDocto == clas)
+                                 .ToListAsync();
+        }
         public async Task<List<ViiMovitoX01>> DynamySearch(string campo, string criterio)
         {
             var query = _context.ViiMovitoX01s.AsQueryable();
 
             switch (campo.ToUpper())
             {
-                case "TIPO":
+                case "MV_TIPO":
                     query = query.Where(v => v.Tipo == criterio);
                     break;
 
-                case "ARTICULO":
+                case "MV2_ARTIC":
                     query = query.Where(v => v.Articulo == criterio);
                     break;
-                case "BOGEADA1":
+                case "MV2_BODEGA1":
                     query = query.Where(v => v.Bodega1 == criterio);
                     break;
-                case "fecha":
+                case "MV_FCH":
                     if (decimal.TryParse(criterio, out decimal fechaValue))
                     {
                         query = query.Where(v => v.Fecha == fechaValue);
@@ -74,7 +79,10 @@ namespace ApisDB.Services
                     {
                         return new List<ViiMovitoX01>();
                     }
-                    break;  
+                    break;
+                case "TA_CLASE":
+                    query = query.Where(v => v.ClaseDocto == criterio);
+                    break;
 
                 default:
                     return new List<ViiMovitoX01>();

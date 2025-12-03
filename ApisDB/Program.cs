@@ -17,15 +17,18 @@ builder.Services.AddDbContext<ApisDB.Data.AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<ViiMovitoX01Service>();
+builder.Services.AddScoped<TxusuarioService>();
+builder.Services.AddScoped<AuthService>();
+
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//} 
 
 app.UseHttpsRedirection();
 
@@ -38,5 +41,5 @@ app.Run();
 
 
 // esto crea el modelo desde la base de datos 
-/* Scaffold-DbContext "Server=XNCPOR205\SQLEXPRESS;Database=HOSPITAL;User Id=sa;Password=xenco2025;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Temp -Tables VII_MOVITO_X01 -Context "TempContext" -Force  */
+/* Scaffold-DbContext "Server=XNCPOR205\SQLEXPRESS;Database=HOSPITAL;User Id=sa;Password=xenco2025;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Temp -Tables TXUSUARIOS -Context "TempContext" -Force  */
 

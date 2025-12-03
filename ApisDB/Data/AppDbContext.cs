@@ -10,6 +10,7 @@ namespace ApisDB.Data
         {
         }
         public virtual DbSet<ViiMovitoX01> ViiMovitoX01s { get; set; }
+        public virtual DbSet<Txusuario> Txusuarios { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

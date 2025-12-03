@@ -54,6 +54,12 @@ namespace ApisDB.Controllers
             var result = await _service.GetMovitoByBod(bod);
             return Ok(result);
         }
+        [HttpGet("TA_CLASE/{clas}")]
+        public async Task<ActionResult> GetMovitoByClas(string clas)
+        {
+            var result = await _service.GetMovitoByClas(clas);
+            return Ok(result);
+        }
         [HttpGet("DynamySearch/{campo}/{criterio}")]
         public async Task<ActionResult> DynamySearch(string campo, string criterio)
         {
